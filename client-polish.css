@@ -1,0 +1,21 @@
+/* Visible motion tied to reading and interacting with the portfolio. */
+:where(a,button):focus-visible{outline:2px solid #d9a18a;outline-offset:4px;border-radius:5px}
+.project-visual{transition:transform .85s cubic-bezier(.16,1,.3,1),box-shadow .85s cubic-bezier(.16,1,.3,1)}
+.mock-browser,.dash-window,.cafe-card{will-change:transform;transition:transform .9s cubic-bezier(.16,1,.3,1),box-shadow .9s cubic-bezier(.16,1,.3,1)}
+.project-visual:hover .mock-browser{transform:translateY(8px) scale(1.025) rotateX(var(--tilt-y,0deg)) rotateY(var(--tilt-x,0deg));box-shadow:0 28px 54px #464d3c38}
+.project-visual:hover .dash-window{transform:translateY(-5px) scale(1.035) rotateX(var(--tilt-y,0deg)) rotateY(var(--tilt-x,0deg));box-shadow:0 25px 50px #454b3b35}
+.project-visual:hover .cafe-card{transform:translateY(-5px) scale(1.035) rotateX(var(--tilt-y,0deg)) rotateY(var(--tilt-x,0deg));box-shadow:0 25px 50px #48433438}
+.project-visual:active{transform:scale(.985);transition-duration:.18s}
+.project-card:nth-child(2) .project-visual:after{transition-delay:.08s}.project-card:nth-child(3) .project-visual:after{transition-delay:.16s}
+.reveal{transition-duration:1.15s,1.2s,1.05s;transform:translate3d(0,48px,0) scale(.975);filter:blur(8px)}
+.section-heading{transition-duration:1.1s,1.2s,1s}
+.hero-copy h1 .accent-word{display:inline-block;animation:headline-settle 1.4s cubic-bezier(.16,1,.3,1) .32s both}
+.hero-copy h1 .serif-word{display:inline-block;animation:word-settle 1.2s cubic-bezier(.16,1,.3,1) .22s both}
+.hero-art .floating-note{box-shadow:0 16px 44px #343a2a1c;transition:box-shadow .6s ease}
+.hero-art:hover .floating-note{box-shadow:0 21px 52px #343a2a27}
+.phone-icon{transition:transform .75s cubic-bezier(.16,1,.3,1),background .35s ease}.phone-link:hover .phone-icon{transform:rotate(135deg);background:#ffffff12}
+.scroll-wheel:after{animation-duration:1.05s}
+@keyframes headline-settle{0%{opacity:.4;transform:translateY(15px) scale(.97);filter:blur(6px)}65%{opacity:1;transform:translateY(-2px) scale(1.01);filter:blur(0)}100%{transform:translateY(0) scale(1)}}
+@keyframes word-settle{0%{transform:translateY(8px) rotate(-3deg);opacity:.55}70%{transform:translateY(-2px) rotate(1deg);opacity:1}100%{transform:translateY(0) rotate(0)}}
+.contact-methods{display:flex;flex-direction:column;align-items:flex-start;gap:4px;margin-top:8px}.contact-methods .phone-link{margin-top:0}
+@media(prefers-reduced-motion:reduce){.project-visual,.mock-browser,.dash-window,.cafe-card,.phone-icon{transition:none!important}.hero-copy h1 .accent-word,.hero-copy h1 .serif-word{animation:none!important}.reveal{transform:none;filter:none}}

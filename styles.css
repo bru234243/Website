@@ -1,0 +1,80 @@
+:root{
+  --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#ff5a5f; --glass: rgba(255,255,255,0.03);
+}
+.transition { transition: all 220ms cubic-bezier(.2,.9,.2,1); }
+*{box-sizing:border-box}
+body{font-family: 'Inter', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;background:linear-gradient(180deg,#071026 0%, #0b1530 100%);color:#e6eef6;margin:0;min-height:100vh;-webkit-font-smoothing:antialiased}
+.container{max-width:980px;margin:24px auto;padding:16px}
+.site-header{text-align:center;padding:28px 16px}
+.site-header{display:flex;align-items:center;gap:12px;padding:18px 20px}
+.profile-link img{width:64px;height:64px;border-radius:16px;border:1px solid rgba(255,255,255,0.06);box-shadow:0 8px 20px rgba(2,6,23,0.6)}
+.title-wrap{display:block}
+.site-header h1{font-weight:700;letter-spacing:-0.6px;margin:0}
+
+.live-badge{position:absolute;transform:translate(-10px, -10px);background:#ff3b30;color:#fff;padding:6px 8px;border-radius:10px;font-weight:700;font-size:12px;box-shadow:0 6px 18px rgba(255,59,48,0.16)}
+.live-badge{animation:livePulse 2.2s infinite ease-in-out}
+@keyframes livePulse{0%{transform:translate(-10px,-10px) scale(1);opacity:1}50%{transform:translate(-10px,-10px) scale(1.06);opacity:0.9}100%{transform:translate(-10px,-10px) scale(1);opacity:1}}
+.profile-link{position:relative;display:inline-block}
+.follow-actions{margin-left:auto}
+.tiktok-btn{background:linear-gradient(90deg,#ff0050,#ff5a5f);color:#fff;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:600;box-shadow:0 10px 30px rgba(255,90,95,0.12)}
+.tiktok-btn:hover{transform:translateY(-3px)}
+
+/* larger header on desktop */
+@media(min-width:900px){
+  .site-header{padding:26px 36px}
+  .profile-link img{width:84px;height:84px;border-radius:18px}
+  .title-wrap h1{font-size:28px}
+}
+
+/* Payment methods visuals */
+.method-row{margin-bottom:8px}
+.methods{display:flex;gap:10px;align-items:center}
+.method-icon{display:inline-flex;align-items:center;justify-content:center;padding:6px 10px;border-radius:8px;font-weight:700;color:#111;background:linear-gradient(180deg,#fff,#f3f3f3);box-shadow:0 6px 18px rgba(2,6,23,0.06)}
+.method-icon.visa{background:linear-gradient(90deg,#1a66ff,#ffffff);color:#fff}
+.method-icon.mc{background:linear-gradient(90deg,#ff5a5f,#ffb14d);color:#fff}
+.method-icon.paypal{background:linear-gradient(90deg,#003087,#009cde);color:#fff}
+.pay-actions{display:flex;gap:8px;margin-top:8px}
+.paypal-btn{background:#003087;color:#fff;padding:10px 12px;border-radius:10px;border:none;cursor:pointer;font-weight:700;box-shadow:0 8px 24px rgba(0,48,135,0.12)}
+.paypal-btn:hover{transform:translateY(-3px)}
+.tag{color:var(--muted);margin-top:6px}
+.card{background:var(--card);padding:16px;border-radius:10px;margin-bottom:16px;box-shadow:0 6px 20px rgba(2,6,23,0.6)}
+.countdown{font-weight:700;font-size:1.5rem;margin-top:12px}
+.bank-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter: blur(6px);padding:12px;border-radius:12px;margin-bottom:12px;border:1px solid rgba(255,255,255,0.03)}
+pre#bank-details{white-space:pre-wrap;background:transparent;border:1px dashed rgba(255,255,255,0.06);padding:10px;border-radius:8px}
+.bank-actions{margin-top:8px}
+.bank-actions button{margin-right:8px}
+.presets{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.presets button{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;color:var(--muted);cursor:pointer}
+input,button{font:inherit}
+input[type="number"],input[type="text"],input[type="datetime-local"]{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+.form-actions{display:flex;gap:8px;margin-top:12px}
+button{background:var(--accent);color:#fff;padding:10px 14px;border-radius:12px;border:none;cursor:pointer;box-shadow:0 6px 18px rgba(255,90,95,0.14)}
+.disabled, button.disabled{opacity:0.54;cursor:not-allowed;transform:none;box-shadow:none}
+.donor-list{list-style:none;padding-left:0;margin:0}
+.donor-list li{padding:12px;border-bottom:1px solid rgba(255,255,255,0.03);font-size:0.95rem}
+.qr{margin-top:10px}
+.site-footer{text-align:center;color:var(--muted);padding:12px}
+
+/* donor add animation */
+.donor-new{transform:translateY(-8px);opacity:0;animation:dropIn 700ms forwards}
+@keyframes dropIn{to{transform:none;opacity:1}}
+
+/* toast */
+.site-toast{position:fixed;right:20px;bottom:20px;background:rgba(0,0,0,0.7);color:#fff;padding:10px 14px;border-radius:10px;opacity:0;transform:translateY(8px);transition:all 260ms}
+.site-toast.visible{opacity:1;transform:none}
+
+/* subtle animations */
+.card{transform:translateY(0);transition:transform 260ms cubic-bezier(.2,.9,.2,1), box-shadow 260ms}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.7)}
+.presets button.transition:hover{transform:translateY(-4px);background:rgba(255,255,255,0.02)}
+button:active{transform:translateY(1px)}
+
+@media(min-width:900px){
+  main.container{display:grid;grid-template-columns:1fr 420px;gap:20px}
+  .card{margin-bottom:0}
+}
+
+@media(min-width:900px){
+  main.container{display:grid;grid-template-columns:1fr 420px;gap:20px}
+  .card{margin-bottom:0}
+}
